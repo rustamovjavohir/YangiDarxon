@@ -34,7 +34,9 @@ class ApartmentListView(ListAPIView):
             return self.get_paginated_response(serializer.data)
 
         data_list = []
-        for floor in range(1, max_floor.get('floor__max') + 1):
+        if max_floor.get('floor__max') is None:
+            max_floor['floor__max'] = 0
+        for floor in range(1, max_floor.get('floor__max', 0) + 1):
             double = queryset.filter(floor=floor, room_quantity=2)
             triple = queryset.filter(floor=floor, room_quantity=3)
             data_obj = {
