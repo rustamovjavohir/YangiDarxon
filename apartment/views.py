@@ -19,6 +19,10 @@ from apartment.serializers import *
 from rest_framework.generics import ListAPIView
 
 
+def error_404(request, exception):
+    return render(request, '404.html')
+
+
 class ApartmentListView(ListAPIView):
     queryset = Apartment.objects.all()
     serializer_class = ApartmentSerializer
