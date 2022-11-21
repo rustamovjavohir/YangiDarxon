@@ -8,6 +8,8 @@ class User(models.Model):
     phone = models.CharField(max_length=15)
     message = models.TextField(blank=True, null=True)
     email = models.CharField(max_length=250, null=True, blank=True)
+    data = models.JSONField(default=dict)
+    telegram_id = models.BigIntegerField(null=True, blank=True)
     is_telegram = models.BooleanField(default=False)
     is_web = models.BooleanField(default=False)
     is_done = models.BooleanField(default=False)

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "user",
     'advertising',
     'sendEmail',
+    'bot',
 
     # lib
     'environs',
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'faker',
+    'telegram',
 ]
 
 MIDDLEWARE = [
@@ -276,6 +278,7 @@ JAZZMIN_SETTINGS = {
     # # Add a language dropdown into the admin
     # "language_chooser": True,
 }
+TELEGRAM_TOKEN = env.str('TELEGRAM_TOKEN')
 
 try:
     from .local_settings import *
