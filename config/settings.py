@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'faker',
     'telegram',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -138,6 +140,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
@@ -231,7 +235,7 @@ JAZZMIN_SETTINGS = {
     "custom_links": {
         "apartment": [{
             "name": "Bot",
-            "url": "https://t.me/vesudeliverybot",
+            "url": "https://t.me/Bccunitedbot",
             "new_window": True,
             "icon": "fas fa-comments",
         }]
