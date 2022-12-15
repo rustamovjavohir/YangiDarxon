@@ -48,5 +48,9 @@ class SendMessageView(APIView):
         self.serializer(data=request.data).is_valid(raise_exception=True)
         data = self.serializer(data=request.data).initial_data
         data.update({"chat_id": group_id})
+        text = f'Mijoz: {data.get("text")}\n' \
+               f'Telefon nomer: {data.get("phone")}'
+        data.update({"text": text})
+
         response = requests.post(url=f"https://api.telegram.org/bot{settings.TELEGRAM_TOKEN}/sendMessage", data=data)
         return Response(data=response.json())

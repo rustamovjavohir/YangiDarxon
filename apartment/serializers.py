@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apartment.models import Apartment, Floor
+from apartment.models import Apartment, Filial
 from drf_extra_fields.fields import Base64ImageField
 
 
@@ -13,9 +13,9 @@ class ApartmentSerializer(serializers.ModelSerializer):
         }
 
 
-class FloorSerializer(serializers.ModelSerializer):
+class FilialSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Floor
+        model = Filial
         depth = 1
         fields = '__all__'
         extra_kwargs = {

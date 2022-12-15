@@ -175,7 +175,7 @@ class ApartmentViewset(ModelViewSet):
 
 
 class FloorListView(ListAPIView):
-    queryset = Floor.objects.all()
-    serializer_class = FloorSerializer
+    queryset = Filial.objects.all()
+    serializer_class = FilialSerializer
     permission_classes = [AllowAny]
     parser_classes = (JSONParser,)
